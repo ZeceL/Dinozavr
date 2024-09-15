@@ -32,12 +32,27 @@
     </style>
 </head>
 <body>
+    <div>
+        <label for="difficulty" style="font-size: 18px; font-weight: bold;">Выбор сложности:</label>
+        <br>
+        <select id="difficulty" onchange="setDifficulty()" style="font-size: 24px; padding: 10px;">
+            <option value="easy">Легкий</option>
+            <option value="medium">Средний</option>
+            <option value="hard">Сложный</option>
+        </select>
+    </div>
 
-    <button class="start-button" onclick="startGame()">Начать игру</button>
+    <br>
+
+    <button onclick="startGame()" style="font-size: 18px; padding: 10px 20px;">Начать игру</button>
 
     <script>
+        function setDifficulty() {
+            var difficulty = document.getElementById("difficulty").value;
+            localStorage.setItem("difficulty", difficulty);
+        }
         function startGame() {
-            window.location.href = 'GameDino.html'; // Открытие страницы GameDino.html
+            window.location.href = "/game/GameDino.html"; // Открытие страницы GameDino.html
         }
     </script>
 
